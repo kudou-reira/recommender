@@ -1,0 +1,25 @@
+version: '2.3'
+services:
+  recommender-service:
+    restart: always
+    build: 
+      dockerfile: Dockerfile
+      context: ./recommender
+    volumes:
+      - ./recommender:/usr/src/app
+      - data:/usr/src/app/data
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - PYTHONUNBUFFERED=1
+    runtime: nvidia
+    # command: /bin/bash
+    # tty: true
+    # stdin_open: true
+
+volumes:
+  data:
+    driver: local
+    driver_opts:
+        type: none
+        o: bind
+        device: $PWD/recommender/data

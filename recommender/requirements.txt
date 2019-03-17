@@ -1,0 +1,9 @@
+Pillow
+numpy
+pandas
+# tensorflow-gpu==1.12.0
+tensorflow-gpu
+keras
+scikit-learn
+matplotlib
+sortedcontainers
